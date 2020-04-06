@@ -1,23 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import config from './config'
+import React from 'react'
+import {createAppContainer} from 'react-navigation'
+import {createStackNavigator} from 'react-navigation-stack'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>{config.API_URL}</Text>
-      <Text>{config.KEY}</Text>
-      <Text>{config.MAP_KEY}</Text>
-    </View>
-  );
-}
+import Home from './components/core/Home'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const stackNavigator = createStackNavigator({
+  Home:Home
+})
+
+const App = createAppContainer(stackNavigator)
+
+export default App
